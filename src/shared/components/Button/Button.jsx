@@ -1,24 +1,17 @@
 import clsx from 'clsx';
-import css from './Button.module.css';
+import css from './Button.module.scss';
 
-function Button({
-  children,
-  onClick,
-  btnType = 'button',
-  variant = 'primary',
-  className,
-  ...props
-}) {
+const Button = ({ type = 'button', title, className, onClick, ...rest }) => {
   return (
     <button
-      type={btnType}
-      className={clsx(css.btn, css[variant], className)}
+      type={type}
       onClick={onClick}
-      disabled={props.disabled}
+      className={clsx(css.button, className && className)}
+      {...rest}
     >
-      {children}
+      {title}
     </button>
   );
-}
+};
 
 export default Button;

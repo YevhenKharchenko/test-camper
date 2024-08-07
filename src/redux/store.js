@@ -1,4 +1,4 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
@@ -10,36 +10,22 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { contactsReducer } from './contacts/slice';
+import { filtersReducer } from './filters/slice';
+import { authReducer } from './auth/slice';
 
-import { userReducer } from './auth/slice.js';
-import { waterReducer } from './water/slice.js';
-
-const userPersistConfig = {
-  key: 'user',
+const authPersistConfig = {
+  key: 'auth',
   storage,
-  whitelist: [],
-};
-
-const waterPersistConfig = {
-  key: 'water',
-  storage,
-  whitelist: [],
-};
-
-const appReducer = combineReducers({
-  user: persistReducer(userPersistConfig, userReducer),
-  water: persistReducer(waterPersistConfig, waterReducer),
-});
-
-const rootReducer = (state, action) => {
-  if (action.type === 'auth/logout/fulfilled' || action.type === 'auth/logout/rejected') {
-    state = undefined;
-  }
-  return appReducer(state, action);
+  whitelist: ['token'],
 };
 
 export const store = configureStore({
-  reducer: rootReducer,
+  reducer: {
+    contacts: contactsReducer,
+    filters: filtersReducer,
+    auth: persistReducer(authPersistConfig, authReducer),
+  },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
