@@ -14,8 +14,11 @@ const Navigation = () => {
         <NavLink to="/" className={buildLinkClass}>
           Home
         </NavLink>
-        <NavLink to="/movies" className={buildLinkClass}>
-          Movies
+        <NavLink to="/catalog" className={buildLinkClass}>
+          Catalog
+        </NavLink>
+        <NavLink to="/favorite" className={buildLinkClass}>
+          Favorite
         </NavLink>
       </nav>
       <Toaster position="top-right" />
