@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import css from './Button.module.scss';
+import css from './Button.module.css';
 
 const Button = ({ type = 'button', title, className, onClick, ...rest }) => {
   return (

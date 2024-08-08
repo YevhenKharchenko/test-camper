@@ -1,0 +1,49 @@
+.listItem {
+  display: flex;
+  gap: 24px;
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  border-radius: 20px;
+  padding: 24px;
+  width: 888px;
+  height: 358px;
+}
+
+.descriptionWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.nameWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.ratingWrapper {
+  display: flex;
+  width: 526px;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.description {
+  margin-bottom: 24px;
+  width: 526px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.detailsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.button {
+  margin-top: auto;
+  width: 166px;
+  height: 56px;
+  padding: 16px 40px;
+}
