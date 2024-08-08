@@ -1,32 +1,71 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useModal } from '../../hooks/useModal.jsx';
 import Button from '../../shared/components/Button/Button.jsx';
+import LikeButton from '../LikeButton/LikeButton.jsx';
+import sprite from '../../assets/icons/sprite.svg';
 import s from './CampersItem.module.css';
+import Modal from '../Modal/Modal.jsx';
+import CategoryItem from '../CategoryItem/CategoryItem.jsx';
 
 const CampersItem = ({ item }) => {
+  const setModal = useModal();
+
+  const closeModal = useCallback(() => {
+    setModal();
+  }, [setModal]);
+
+  const openModal = useCallback(() => {
+    setModal(<Modal onClose={closeModal} />);
+  }, [setModal, closeModal]);
+
   return (
     <div className={s.listItem}>
-      <img src={item.gallery[0]} alt="" width={290} height={310} />
+      <img src={item.gallery[0]} alt="" width={290} height={310} className={s.camperImage} />
       <div className={s.descriptionWrapper}>
         <div className={s.nameWrapper}>
-          <h2>{item.name}</h2>
-          <p>${item.price}</p>
+          <h2 className={s.title}>{item.name}</h2>
+          <div className={s.priceWrapper}>
+            <p className={s.price}>€{item.price}</p>
+            <LikeButton />
+          </div>
         </div>
         <div className={s.ratingWrapper}>
-          <p>
+          <p className={s.rating}>
             {item.rating} ({item.reviews.length} Reviews)
           </p>
-          <p>{item.location}</p>
+          <div className={s.locationWrapper}>
+            <svg className={s.locationIcon}>
+              <use xlinkHref={`${sprite}#icon-map-pin`}></use>
+            </svg>
+            <p className={s.location}>{item.location}</p>
+          </div>
         </div>
         <p className={s.description}>{item.description}</p>
         <ul className={s.detailsList}>
-          <li>{item.adults} adults</li>
-          <li>{item.transmission}</li>
-          <li>{item.engine}</li>
-          <li>{item.details.kitchen} kitchen</li>
-          <li>{item.details.beds} beds</li>
-          <li>{item.details.airConditioner} AC</li>
+          <li>
+            <CategoryItem icon="icon-users" title={`${item.adults} adults`} fill={true} />
+          </li>
+          <li>
+            <CategoryItem icon="icon-automatic" title={`${item.transmission}`} />
+          </li>
+          <li>
+            <CategoryItem icon="icon-petrol" title={item.engine} fill={true} />
+          </li>
+          {item.details.kitchen > 0 && (
+            <li>
+              <CategoryItem icon="icon-kitchen" title="Kitchen" />
+            </li>
+          )}
+          <li>
+            <CategoryItem icon="icon-bed" title={`${item.details.beds} beds`} className=".stroke" />
+          </li>
+          {item.details.airConditioner > 0 && (
+            <li>
+              <CategoryItem icon="icon-conditioner" title="AC" />
+            </li>
+          )}
         </ul>
-        <Button title="Show more" className={s.button} />
+        <Button title="Show more" className={s.button} onClick={openModal} />
       </div>
     </div>
   );

@@ -8,6 +8,12 @@
   height: 358px;
 }
 
+.camperImage {
+  border-radius: 10px;
+  width: 290px;
+  height: 310px;
+}
+
 .descriptionWrapper {
   display: flex;
   flex-direction: column;
@@ -16,7 +22,32 @@
 .nameWrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 8px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.25;
+  color: #101828;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 340px;
+}
+
+.priceWrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.price {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.25;
+  color: #101828;
 }
 
 .ratingWrapper {
@@ -26,18 +57,51 @@
   margin-bottom: 24px;
 }
 
+.rating {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: #101828;
+}
+
+.locationWrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.locationIcon {
+  width: 16px;
+  height: 16px;
+  stroke: #101828;
+  fill: none;
+}
+
+.location {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #101828;
+}
+
 .description {
   margin-bottom: 24px;
   width: 526px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #475467;
 }
 
 .detailsList {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   margin-bottom: 24px;
 }
 

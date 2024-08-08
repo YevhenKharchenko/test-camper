@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 100px;
+  height: 44px;
+  background-color: #f2f4f7;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+  stroke: #111;
+}
+
+.fill {
+  fill: #111;
+  stroke: none;
+}
+
+.text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: center;
+  color: #101828;
+}

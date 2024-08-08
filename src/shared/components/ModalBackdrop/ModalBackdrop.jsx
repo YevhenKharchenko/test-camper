@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
-import css from './ModalBackdrop.module.css';
 import clsx from 'clsx';
+import css from './ModalBackdrop.module.css';
 
 const ModalBackdrop = ({ children, onClose }) => {
   const [active, setActive] = useState(false);
