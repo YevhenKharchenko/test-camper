@@ -16,7 +16,9 @@
   gap: 24px;
 }
 
-.link {
+.link:hover,
+.link:focus {
+  color: #d84343;
 }
 
 .active {

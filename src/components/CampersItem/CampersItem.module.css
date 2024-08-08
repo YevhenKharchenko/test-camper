@@ -12,11 +12,13 @@
   border-radius: 10px;
   width: 290px;
   height: 310px;
+  object-fit: cover;
 }
 
 .descriptionWrapper {
   display: flex;
   flex-direction: column;
+  object-fit: cover;
 }
 
 .nameWrapper {
@@ -52,9 +54,17 @@
 
 .ratingWrapper {
   display: flex;
+  align-items: center;
   width: 526px;
   gap: 16px;
   margin-bottom: 24px;
+}
+
+.star {
+  fill: #ffc531;
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
 }
 
 .rating {
@@ -64,6 +74,8 @@
   text-decoration: underline;
   text-decoration-skip-ink: none;
   color: #101828;
+  display: flex;
+  align-items: center;
 }
 
 .locationWrapper {

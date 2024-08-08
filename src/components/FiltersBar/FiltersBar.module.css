@@ -1,14 +1,156 @@
-.wrapper {
-  position: relative;
-}
-
 .container {
   position: sticky;
-  top: -100px;
+  top: 70px;
   max-height: max-content;
   height: 100%;
   width: 100px;
   padding-top: 10px;
   z-index: 1;
   margin-bottom: auto;
+}
+
+.filtersForm {
+  width: 360px;
+}
+
+.locationLabel {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(16, 24, 40, 0.6);
+  position: relative;
+  gap: 8px;
+}
+
+.locationInput {
+  border-radius: 10px;
+  padding: 18px 18px 18px 44px;
+  width: 360px;
+  height: 56px;
+  outline: none;
+  border: none;
+  background-color: #f7f7f7;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+  margin-top: 8px;
+}
+
+.locationIcon {
+  width: 18px;
+  height: 20px;
+  stroke: #101828;
+  fill: none;
+  position: absolute;
+  bottom: 0;
+  left: 18px;
+}
+
+.filtersText {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #475467;
+  margin-top: 32px;
+  margin-bottom: 14px;
+}
+
+.equipmentFieldset {
+  padding: 0;
+  margin: 0;
+  border: none;
+  margin-bottom: 32px;
+}
+
+.equipmentLegend {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+  margin-bottom: 48px;
+}
+
+.checkboxWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 8px;
+}
+
+.checkboxLabel {
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  border-radius: 10px;
+  padding: 18px;
+  width: 114px;
+  height: 95px;
+}
+
+.checkbox {
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkboxIcon {
+  width: 32px;
+  height: 32px;
+  fill: #fff;
+  stroke: #111;
+}
+
+.checkboxSpan {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
+
+.checkbox:checked + .checkboxLabel {
+  border-color: #e44848;
+}
+
+.typeFieldset {
+  padding: 0;
+  margin: 0;
+  border: none;
+  margin-bottom: 64px;
+}
+
+.typeLegend {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+  margin-bottom: 48px;
+}
+
+.radioWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 8px;
+}
+
+.integrated {
+  text-align: center;
+  font-size: 16px;
+  line-height: 0.9;
 }

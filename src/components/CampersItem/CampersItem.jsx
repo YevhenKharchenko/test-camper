@@ -6,6 +6,7 @@ import sprite from '../../assets/icons/sprite.svg';
 import s from './CampersItem.module.css';
 import Modal from '../Modal/Modal.jsx';
 import CategoryItem from '../CategoryItem/CategoryItem.jsx';
+import { FaStar } from 'react-icons/fa';
 
 const CampersItem = ({ item }) => {
   const setModal = useModal();
@@ -31,6 +32,7 @@ const CampersItem = ({ item }) => {
         </div>
         <div className={s.ratingWrapper}>
           <p className={s.rating}>
+            <FaStar className={s.star} />
             {item.rating} ({item.reviews.length} Reviews)
           </p>
           <div className={s.locationWrapper}>
@@ -53,7 +55,7 @@ const CampersItem = ({ item }) => {
           </li>
           {item.details.kitchen > 0 && (
             <li>
-              <CategoryItem icon="icon-kitchen" title="Kitchen" />
+              <CategoryItem icon="icon-kitchen" title="kitchen" />
             </li>
           )}
           <li>
