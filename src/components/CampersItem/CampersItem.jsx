@@ -27,7 +27,7 @@ const CampersItem = ({ item }) => {
           <h2 className={s.title}>{item.name}</h2>
           <div className={s.priceWrapper}>
             <p className={s.price}>€{item.price}</p>
-            <LikeButton />
+            <LikeButton item={item} />
           </div>
         </div>
         <div className={s.ratingWrapper}>
