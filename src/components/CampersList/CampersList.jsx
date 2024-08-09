@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import CampersItem from '../CampersItem/CampersItem.jsx';
-import s from './CampersList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCampers } from '../../redux/selectors.js';
 import { fetchCampers } from '../../redux/campers/operations.js';
+import LoadMoreButton from '../LoadMoreButton/LoadMoreButton.jsx';
+import s from './CampersList.module.css';
 
 const CampersList = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const CampersList = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className={s.container}>
       <ul className={s.list}>
         {campers.map(item => {
           return (
@@ -24,6 +25,7 @@ const CampersList = () => {
           );
         })}
       </ul>
+      <LoadMoreButton />
     </div>
   );
 };

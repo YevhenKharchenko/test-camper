@@ -1,8 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
 import sprite from '../../assets/icons/sprite.svg';
-import s from './FiltersBar.module.css';
 import Button from '../../shared/components/Button/Button.jsx';
+import s from './FiltersBar.module.css';
 
 const FiltersBar = () => {
   return (

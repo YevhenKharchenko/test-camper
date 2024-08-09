@@ -21,7 +21,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CatalogPage />} />
         <Route path="/favorite" element={<FavoritePage />} />
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path="*" element={<HomePage />} />
       </Routes>
     </SharedLayout>
   );

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import DocumentTitle from '../../components/DocumentTitle.jsx';
 import CampersItem from '../../components/CampersItem/CampersItem.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCampers, selectFavorite } from '../../redux/selectors.js';
@@ -15,6 +16,7 @@ const FavoritePage = () => {
 
   return (
     <div className={s.container}>
+      <DocumentTitle>Rent Camper - Favorite</DocumentTitle>
       <ul className={s.list}>
         {favorite.map(item => {
           return (
