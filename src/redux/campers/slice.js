@@ -1,8 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchCampers } from './operations';
 
-import data from '../../shared/data/campers.json';
-
 const handlePending = state => {
   state.loading = true;
 };
@@ -15,11 +13,16 @@ const handleRejected = (state, action) => {
 const campersSlice = createSlice({
   name: 'campers',
   initialState: {
-    items: [...data],
+    items: [],
+    favorite: [],
     loading: false,
     error: null,
   },
-
+  reducers: {
+    addFavorite: (state, action) => {
+      state.favorite.push(action.payload);
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchCampers.pending, handlePending)
@@ -31,5 +34,7 @@ const campersSlice = createSlice({
       .addCase(fetchCampers.rejected, handleRejected);
   },
 });
+
+export const { addFavorite } = campersSlice.actions;
 
 export const campersReducer = campersSlice.reducer;
