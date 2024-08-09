@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
 import clsx from 'clsx';
 import css from './Navigation.module.css';
 
@@ -21,7 +20,6 @@ const Navigation = () => {
           Favorite
         </NavLink>
       </nav>
-      <Toaster position="top-right" />
     </header>
   );
 };

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchCampers } from './operations';
+import { fetchCampers, fetchMoreCampers } from './operations';
 
 const handlePending = state => {
   state.loading = true;
@@ -15,6 +15,7 @@ const campersSlice = createSlice({
   initialState: {
     items: [],
     favorite: [],
+    page: 2,
     loading: false,
     error: null,
   },
@@ -28,6 +29,9 @@ const campersSlice = createSlice({
         state.favorite.push(action.payload);
       }
     },
+    resetPage: state => {
+      state.page = 2;
+    },
   },
   extraReducers: builder => {
     builder
@@ -37,10 +41,18 @@ const campersSlice = createSlice({
         state.error = null;
         state.items = action.payload;
       })
-      .addCase(fetchCampers.rejected, handleRejected);
+      .addCase(fetchCampers.rejected, handleRejected)
+      .addCase(fetchMoreCampers.pending, handlePending)
+      .addCase(fetchMoreCampers.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
+        state.items = [...state.items, ...action.payload];
+        state.page = state.page + 1;
+      })
+      .addCase(fetchMoreCampers.rejected, handleRejected);
   },
 });
 
-export const { toggleFavorite } = campersSlice.actions;
+export const { toggleFavorite, resetPage } = campersSlice.actions;
 
 export const campersReducer = campersSlice.reducer;

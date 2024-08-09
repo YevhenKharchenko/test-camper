@@ -1,14 +1,29 @@
-import axios from 'axios';
 import toast from 'react-hot-toast';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
-axios.defaults.baseURL = 'https://661d2b76e7b95ad7fa6c61e2.mockapi.io';
+import { fetchCars } from '../../utils/api';
 
 export const fetchCampers = createAsyncThunk('campers/fetchAll', async (_, thunkAPI) => {
   try {
-    const response = await axios.get('/campers');
+    const data = await fetchCars();
 
-    return response.data;
+    return data;
+  } catch (e) {
+    toast.error(
+      `Oops! Something went wrong. Please try again later or contact support if the issue persists. Error details: ${e.message}`
+    );
+    return thunkAPI.rejectWithValue(e.message);
+  }
+});
+
+export const fetchMoreCampers = createAsyncThunk('campers/fetchMore', async (page, thunkAPI) => {
+  try {
+    const data = await fetchCars(page);
+    console.log(data);
+
+    if (!data.length) {
+      toast.error('There are no more campers to load.');
+    }
+    return data;
   } catch (e) {
     toast.error(
       `Oops! Something went wrong. Please try again later or contact support if the issue persists. Error details: ${e.message}`

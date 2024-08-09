@@ -3,6 +3,7 @@ import CampersItem from '../CampersItem/CampersItem.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCampers } from '../../redux/selectors.js';
 import { fetchCampers } from '../../redux/campers/operations.js';
+import { resetPage } from '../../redux/campers/slice.js';
 import LoadMoreButton from '../LoadMoreButton/LoadMoreButton.jsx';
 import s from './CampersList.module.css';
 
@@ -11,6 +12,7 @@ const CampersList = () => {
   const campers = useSelector(selectCampers);
 
   useEffect(() => {
+    dispatch(resetPage());
     dispatch(fetchCampers());
   }, [dispatch]);
 
