@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
+import clsx from 'clsx';
 import { FaStar } from 'react-icons/fa';
 import sprite from '../../assets/icons/sprite.svg';
 import Features from '../Features/Features.jsx';
 import BookCamperForm from '../BookCamperForm/BookCamperForm.jsx';
-import s from './Modal.module.css';
 import Reviews from '../Reviews/Reviews.jsx';
+import s from './Modal.module.css';
 
 const Modal = ({ item, closeModal }) => {
   const [option, setOption] = useState('features');
-
-  console.log(item);
 
   return (
     <div className={s.container}>
@@ -40,7 +39,7 @@ const Modal = ({ item, closeModal }) => {
       <p className={s.description}>{item.description}</p>
       <div className={s.titlesWrapper}>
         <button
-          className={s.subtitle}
+          className={clsx(s.subtitle, option === 'features' && s.active)}
           onClick={() => {
             setOption('features');
           }}
@@ -48,7 +47,7 @@ const Modal = ({ item, closeModal }) => {
           Features
         </button>
         <button
-          className={s.subtitle}
+          className={clsx(s.subtitle, option === 'reviews' && s.active)}
           onClick={() => {
             setOption('reviews');
           }}
@@ -57,8 +56,7 @@ const Modal = ({ item, closeModal }) => {
         </button>
       </div>
       <div className={s.infoWrapper}>
-        {option === 'features' && <Features item={item} />}
-        {option === 'reviews' && <Reviews item={item} />}
+        {option === 'features' ? <Features item={item} /> : <Reviews item={item} />}
         <BookCamperForm />
       </div>
     </div>

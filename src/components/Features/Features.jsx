@@ -1,10 +1,9 @@
 import React from 'react';
 import CategoryItem from '../CategoryItem/CategoryItem.jsx';
 import s from './Features.module.css';
+import { formatString } from '../../utils/formatString.js';
 
 const Features = ({ item }) => {
-  console.log(item);
-
   return (
     <div className={s.container}>
       <ul className={s.list}>
@@ -89,7 +88,7 @@ const Features = ({ item }) => {
       <ul className={s.detailsList}>
         <li className={s.detailsItem}>
           <span className={s.detailsSpan}>Form</span>
-          <span className={s.detailsSpan}>{item.form}</span>
+          <span className={s.detailsSpan}>{formatString(item.form)}</span>
         </li>
         <li className={s.detailsItem}>
           <span className={s.detailsSpan}>Length</span>

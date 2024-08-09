@@ -1,15 +1,18 @@
 import React from 'react';
-import data from '../../shared/data/campers.json';
-import s from './CampersList.module.css';
 import CampersItem from '../CampersItem/CampersItem.jsx';
-
-console.log(data);
+import s from './CampersList.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCampers } from '../../redux/selectors.js';
 
 const CampersList = () => {
+  const dispatch = useDispatch();
+  const campers = useSelector(selectCampers);
+  console.log(campers);
+
   return (
     <div>
       <ul className={s.list}>
-        {data.map(item => {
+        {campers.map(item => {
           return (
             <li key={item._id} className={s.item}>
               <CampersItem item={item} />

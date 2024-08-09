@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchCampers } from './operations';
 
+import data from '../../shared/data/campers.json';
+
 const handlePending = state => {
   state.loading = true;
 };
@@ -13,7 +15,7 @@ const handleRejected = (state, action) => {
 const campersSlice = createSlice({
   name: 'campers',
   initialState: {
-    items: [],
+    items: [...data],
     loading: false,
     error: null,
   },

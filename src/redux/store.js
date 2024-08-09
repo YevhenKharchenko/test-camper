@@ -10,21 +10,17 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { contactsReducer } from './contacts/slice';
-import { filtersReducer } from './filters/slice';
-import { authReducer } from './auth/slice';
+import { campersReducer } from './campers/slice';
 
-const authPersistConfig = {
-  key: 'auth',
+const camperPersistConfig = {
+  key: 'campers',
   storage,
   whitelist: [],
 };
 
 export const store = configureStore({
   reducer: {
-    contacts: contactsReducer,
-    filters: filtersReducer,
-    auth: persistReducer(authPersistConfig, authReducer),
+    campers: persistReducer(camperPersistConfig, campersReducer),
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

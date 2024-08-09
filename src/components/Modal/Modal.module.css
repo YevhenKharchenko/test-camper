@@ -126,9 +126,25 @@
 }
 
 .subtitle:hover,
-.subtitle:focus,
-.subtitle:active {
+.subtitle:focus {
   color: #d84343;
+}
+
+.active {
+  color: #d84343;
+  position: relative;
+}
+
+.active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85px;
+  height: 6px;
+  background-color: #e44848;
 }
 
 .infoWrapper {
