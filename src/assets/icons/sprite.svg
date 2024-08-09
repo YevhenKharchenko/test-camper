@@ -94,5 +94,8 @@
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" d="M22.667 14.667h2a2 2 0 0 0 0-4h-2v6.667m0 5.333V28H24a2.668 2.668 0 0 0 0-5.334h-1.333zM4 6.667a2.668 2.668 0 1 0 5.336 0 2.668 2.668 0 0 0-5.336 0z"/>
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" d="M6.667 9.333v4a1.335 1.335 0 0 0 1.334 1.334h4m-.001 0V24a1.33 1.33 0 0 0 1.334 1.333h4M12 14.667h5.333"/>
     </symbol>
+    <symbol id="icon-close" viewBox="0 0 32 32">
+      <path stroke="#101828" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M24 8 8 24M8 8l16 16"/>
+    </symbol>
   </defs>
 </svg>

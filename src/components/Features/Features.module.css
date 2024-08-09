@@ -1,0 +1,10 @@
+.container {
+  border-radius: 10px;
+  width: 430px;
+  /* height: 530px; */
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}

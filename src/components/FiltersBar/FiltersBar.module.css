@@ -84,6 +84,12 @@
   padding: 18px;
   width: 114px;
   height: 95px;
+  cursor: pointer;
+}
+
+.checkboxLabel:hover,
+.checkboxLabel:focus {
+  border-color: #e44848;
 }
 
 .checkbox {

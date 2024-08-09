@@ -16,8 +16,8 @@ const CampersItem = ({ item }) => {
   }, [setModal]);
 
   const openModal = useCallback(() => {
-    setModal(<Modal onClose={closeModal} />);
-  }, [setModal, closeModal]);
+    setModal(<Modal onClose={closeModal} item={item} closeModal={closeModal} />);
+  }, [setModal, closeModal, item]);
 
   return (
     <div className={s.listItem}>
