@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import sprite from '../../assets/icons/sprite.svg';
 import Features from '../Features/Features.jsx';
@@ -7,6 +7,8 @@ import s from './Modal.module.css';
 import Reviews from '../Reviews/Reviews.jsx';
 
 const Modal = ({ item, closeModal }) => {
+  const [option, setOption] = useState('features');
+
   console.log(item);
 
   return (
@@ -37,12 +39,26 @@ const Modal = ({ item, closeModal }) => {
       </div>
       <p className={s.description}>{item.description}</p>
       <div className={s.titlesWrapper}>
-        <h2 className={s.subtitle}>Features</h2>
-        <h2 className={s.subtitle}>Reviews</h2>
+        <button
+          className={s.subtitle}
+          onClick={() => {
+            setOption('features');
+          }}
+        >
+          Features
+        </button>
+        <button
+          className={s.subtitle}
+          onClick={() => {
+            setOption('reviews');
+          }}
+        >
+          Reviews
+        </button>
       </div>
       <div className={s.infoWrapper}>
-        {/* <Features item={item} /> */}
-        <Reviews item={item} />
+        {option === 'features' && <Features item={item} />}
+        {option === 'reviews' && <Reviews item={item} />}
         <BookCamperForm />
       </div>
     </div>

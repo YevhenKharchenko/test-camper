@@ -118,11 +118,17 @@
   margin-bottom: 44px;
 }
 
-.subtitles {
+.subtitle {
   font-weight: 600;
   font-size: 20px;
   line-height: 1.2;
   color: #101828;
+}
+
+.subtitle:hover,
+.subtitle:focus,
+.subtitle:active {
+  color: #d84343;
 }
 
 .infoWrapper {
