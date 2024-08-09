@@ -4,6 +4,7 @@ import sprite from '../../assets/icons/sprite.svg';
 import Features from '../Features/Features.jsx';
 import BookCamperForm from '../BookCamperForm/BookCamperForm.jsx';
 import s from './Modal.module.css';
+import Reviews from '../Reviews/Reviews.jsx';
 
 const Modal = ({ item, closeModal }) => {
   console.log(item);
@@ -40,7 +41,8 @@ const Modal = ({ item, closeModal }) => {
         <h2 className={s.subtitle}>Reviews</h2>
       </div>
       <div className={s.infoWrapper}>
-        <Features item={item} />
+        {/* <Features item={item} /> */}
+        <Reviews item={item} />
         <BookCamperForm />
       </div>
     </div>

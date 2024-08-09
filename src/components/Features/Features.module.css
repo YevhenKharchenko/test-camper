@@ -1,5 +1,4 @@
 .container {
-  border-radius: 10px;
   width: 430px;
   /* height: 530px; */
 }
@@ -7,4 +6,35 @@
 .list {
   display: flex;
   flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 44px;
+}
+
+.detailsTitle {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: solid 1px rgba(16, 24, 40, 0.2);
+}
+
+.detailsList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.detailsItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detailsSpan {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.33333;
+  text-align: center;
+  color: #101828;
 }
