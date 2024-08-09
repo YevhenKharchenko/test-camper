@@ -47,7 +47,11 @@ const campersSlice = createSlice({
         state.loading = false;
         state.error = null;
         state.items = [...state.items, ...action.payload];
-        state.page = state.page + 1;
+        if (action.payload.length < 4) {
+          state.page = 'lastPage';
+        } else {
+          state.page = state.page + 1;
+        }
       })
       .addCase(fetchMoreCampers.rejected, handleRejected);
   },

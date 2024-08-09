@@ -16,3 +16,7 @@
 .btn:active {
   border-color: #e44848;
 }
+
+.none {
+  display: none;
+}
