@@ -14,23 +14,31 @@
 .empty {
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
+  margin-top: 30px;
   align-items: center;
-  gap: 30px;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .img {
 }
 
 .title {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 32px;
+  font-weight: 600;
   margin-bottom: 10px;
-  color: #1a202c;
+  color: #101828;
 }
 
 .text {
-  font-size: 1.2rem;
+  font-size: 20px;
   margin-bottom: 20px;
-  color: #4a5568;
+  color: #475467;
+  text-align: center;
+}
+
+.btn {
+  padding: 16px 32px;
+  width: auto;
 }
