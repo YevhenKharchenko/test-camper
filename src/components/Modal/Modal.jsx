@@ -30,7 +30,7 @@ const Modal = ({ item, closeModal }) => {
           <p className={s.location}>{item.location}</p>
         </div>
       </div>
-      <p className={s.price}>€{item.price}</p>
+      <p className={s.price}>€{item.price}.00</p>
       <div className={s.imgWrapper}>
         <img src={item.gallery[0]} alt="" width={290} height={310} className={s.camperImage} />
         <img src={item.gallery[1]} alt="" width={290} height={310} className={s.camperImage} />
