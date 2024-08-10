@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import DocumentTitle from '../../components/DocumentTitle.jsx';
-import { default as video } from '../../assets/video/slovenia.mov';
+import { default as video } from '../../assets/video/camper.mp4';
 import s from './HomePage.module.css';
 
 const HomePage = () => {
