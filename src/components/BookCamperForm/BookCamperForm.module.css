@@ -4,7 +4,7 @@
   padding: 24px;
   width: 448px;
   /* height: 532px; */
-  height: auto;
+  /* height: auto; */
   /* max-height: 632px; */
 }
 
@@ -44,6 +44,26 @@
   line-height: 1.25;
   color: rgba(16, 24, 40, 0.6);
   outline: none;
+}
+
+.dateInput {
+  composes: input;
+  padding-right: 48px;
+}
+
+.dateWrapper {
+  position: relative;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: #111;
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  cursor: pointer;
 }
 
 .textarea {

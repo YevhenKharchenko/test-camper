@@ -9,15 +9,10 @@
   line-height: 1.5;
   letter-spacing: -0.01em;
   color: #101828;
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.btn:hover,
-.btn:focus,
-.btn:active {
+.btn:hover {
   border-color: #e44848;
-}
-
-.none {
-  display: none;
+  transform: scale(1.1);
 }

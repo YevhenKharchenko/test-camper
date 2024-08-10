@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import s from './ReviewItem.module.css';
 

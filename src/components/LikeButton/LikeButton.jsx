@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
 import clsx from 'clsx';
-import sprite from '../../assets/icons/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleFavorite } from '../../redux/campers/slice.js';
-import s from './LikeButton.module.css';
 import { selectIsFavorite } from '../../redux/selectors.js';
+import sprite from '../../assets/icons/sprite.svg';
+import s from './LikeButton.module.css';
 
 const LikeButton = ({ item }) => {
   const dispatch = useDispatch();

@@ -41,11 +41,15 @@
 .locationIcon {
   width: 18px;
   height: 20px;
-  stroke: #101828;
+  stroke: rgba(16, 24, 40, 0.6);
   fill: none;
   position: absolute;
   bottom: 0;
   left: 18px;
+}
+
+.locationInput:focus + .locationIcon {
+  stroke: #101828;
 }
 
 .filtersText {
@@ -87,15 +91,12 @@
   width: 114px;
   height: 95px;
   cursor: pointer;
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .checkboxLabel:hover,
 .checkboxLabel:focus {
   border-color: #e44848;
-}
-
-.checkbox {
 }
 
 .visuallyHidden {

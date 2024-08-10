@@ -1,10 +1,12 @@
-import React from 'react';
+import toast from 'react-hot-toast';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import { validationSchema } from '../../schemas/validationSchema.js';
 import Button from '../../shared/components/Button/Button.jsx';
+import sprite from '../../assets/icons/sprite.svg';
 import s from './BookCamperForm.module.css';
-import toast from 'react-hot-toast';
 
 const BookCamperForm = () => {
   const {
@@ -16,15 +18,14 @@ const BookCamperForm = () => {
     defaultValues: {
       name: '',
       email: '',
-      date: '',
+      date: null,
       comment: '',
     },
   });
 
   const onSubmit = data => {
-    console.log(data);
+    toast.success('Successfully sent');
     window.location.reload();
-    toast.success('Successfully send');
   };
 
   return (
@@ -40,6 +41,7 @@ const BookCamperForm = () => {
           )}
         />
         {errors.name && <div className={s.error}>{errors.name.message}</div>}
+
         <Controller
           name="email"
           control={control}
@@ -48,14 +50,31 @@ const BookCamperForm = () => {
           )}
         />
         {errors.email && <div className={s.error}>{errors.email.message}</div>}
-        <Controller
-          name="date"
-          control={control}
-          render={({ field }) => (
-            <input className={s.input} type="date" placeholder="Booking date" {...field} />
-          )}
-        />
+
+        <div
+          className={s.dateWrapper}
+          onClick={() => document.getElementById('date-input').focus()}
+        >
+          <Controller
+            name="date"
+            control={control}
+            render={({ field }) => (
+              <DatePicker
+                id="date-input"
+                className={s.dateInput}
+                placeholderText="Booking date"
+                selected={field.value}
+                onChange={field.onChange}
+                dateFormat="dd/MM/yyyy"
+              />
+            )}
+          />
+          <svg className={s.icon}>
+            <use xlinkHref={`${sprite}#icon-calendar`}></use>
+          </svg>
+        </div>
         {errors.date && <div className={s.error}>{errors.date.message}</div>}
+
         <Controller
           name="comment"
           control={control}
@@ -64,6 +83,7 @@ const BookCamperForm = () => {
           )}
         />
         {errors.comment && <div className={s.error}>{errors.comment.message}</div>}
+
         <Button type="submit" title="Send" disabled={isSubmitting} />
       </form>
     </div>

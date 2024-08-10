@@ -1,16 +1,30 @@
-import React from 'react';
 import clsx from 'clsx';
-import sprite from '../../assets/icons/sprite.svg';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { setFilters } from '../../redux/campers/slice.js';
 import Button from '../../shared/components/Button/Button.jsx';
+import sprite from '../../assets/icons/sprite.svg';
 import s from './FiltersBar.module.css';
 
 const FiltersBar = () => {
+  const dispatch = useDispatch();
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = data => {
+    dispatch(setFilters(data));
+  };
+
   return (
     <div className={s.container}>
-      <form className={s.filtersForm}>
+      <form className={s.filtersForm} onSubmit={handleSubmit(onSubmit)}>
         <label className={s.locationLabel} htmlFor="">
           Location
-          <input className={s.locationInput} type="text" defaultValue="Kyiv, Ukraine" />
+          <input
+            className={s.locationInput}
+            type="text"
+            {...register('location')}
+            placeholder="City"
+          />
           <svg className={s.locationIcon}>
             <use xlinkHref={`${sprite}#icon-map-pin`}></use>
           </svg>
@@ -21,7 +35,12 @@ const FiltersBar = () => {
         <fieldset className={s.equipmentFieldset}>
           <legend className={s.equipmentLegend}>Vehicle equipment</legend>
           <div className={s.checkboxWrapper}>
-            <input type="checkbox" className={clsx(s.checkbox, s.visuallyHidden)} id="ac" />
+            <input
+              type="checkbox"
+              {...register('details.airConditioner')}
+              className={clsx(s.checkbox, s.visuallyHidden)}
+              id="ac"
+            />
             <label className={s.checkboxLabel} htmlFor="ac">
               <div className={s.wrapper}>
                 <svg className={clsx(s.checkboxIcon)}>
@@ -31,7 +50,13 @@ const FiltersBar = () => {
               </div>
             </label>
 
-            <input type="checkbox" className={clsx(s.checkbox, s.visuallyHidden)} id="automatic" />
+            <input
+              type="checkbox"
+              {...register('transmission')}
+              className={clsx(s.checkbox, s.visuallyHidden)}
+              value="automatic"
+              id="automatic"
+            />
             <label className={s.checkboxLabel} htmlFor="automatic">
               <div className={s.wrapper}>
                 <svg className={clsx(s.checkboxIcon)}>
@@ -41,7 +66,12 @@ const FiltersBar = () => {
               </div>
             </label>
 
-            <input type="checkbox" className={clsx(s.checkbox, s.visuallyHidden)} id="kitchen" />
+            <input
+              type="checkbox"
+              {...register('details.kitchen')}
+              className={clsx(s.checkbox, s.visuallyHidden)}
+              id="kitchen"
+            />
             <label className={s.checkboxLabel} htmlFor="kitchen">
               <div className={s.wrapper}>
                 <svg className={clsx(s.checkboxIcon)}>
@@ -51,7 +81,12 @@ const FiltersBar = () => {
               </div>
             </label>
 
-            <input type="checkbox" className={clsx(s.checkbox, s.visuallyHidden)} id="tv" />
+            <input
+              type="checkbox"
+              {...register('details.TV')}
+              className={clsx(s.checkbox, s.visuallyHidden)}
+              id="tv"
+            />
             <label className={s.checkboxLabel} htmlFor="tv">
               <div className={s.wrapper}>
                 <svg className={clsx(s.checkboxIcon)}>
@@ -61,7 +96,12 @@ const FiltersBar = () => {
               </div>
             </label>
 
-            <input type="checkbox" className={clsx(s.checkbox, s.visuallyHidden)} id="shower" />
+            <input
+              type="checkbox"
+              {...register('details.shower')}
+              className={clsx(s.checkbox, s.visuallyHidden)}
+              id="shower"
+            />
             <label className={s.checkboxLabel} htmlFor="shower">
               <div className={s.wrapper}>
                 <svg className={clsx(s.checkboxIcon)}>
@@ -79,9 +119,11 @@ const FiltersBar = () => {
           <div className={s.radioWrapper}>
             <input
               type="radio"
+              value="panelTruck"
+              {...register('form')}
               className={clsx(s.checkbox, s.visuallyHidden)}
               id="van"
-              name="type"
+              name="form"
             />
             <label className={s.checkboxLabel} htmlFor="van">
               <div className={s.wrapper}>
@@ -94,9 +136,11 @@ const FiltersBar = () => {
 
             <input
               type="radio"
+              value="fullyIntegrated"
+              {...register('form')}
               className={clsx(s.checkbox, s.visuallyHidden)}
               id="integrated"
-              name="type"
+              name="form"
             />
             <label className={s.checkboxLabel} htmlFor="integrated">
               <div className={s.wrapper}>
@@ -109,9 +153,11 @@ const FiltersBar = () => {
 
             <input
               type="radio"
+              value="alcove"
+              {...register('form')}
               className={clsx(s.checkbox, s.visuallyHidden)}
               id="alcove"
-              name="type"
+              name="form"
             />
             <label className={s.checkboxLabel} htmlFor="alcove">
               <div className={s.wrapper}>

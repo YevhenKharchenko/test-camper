@@ -18,6 +18,17 @@ const campersSlice = createSlice({
     page: 2,
     loading: false,
     error: null,
+    filters: {
+      location: '',
+      details: {
+        airConditioner: false,
+        kitchen: false,
+        TV: false,
+        shower: false,
+      },
+      form: '',
+      transmission: '',
+    },
   },
   reducers: {
     toggleFavorite: (state, action) => {
@@ -31,6 +42,22 @@ const campersSlice = createSlice({
     },
     resetPage: state => {
       state.page = 2;
+    },
+    setFilters: (state, action) => {
+      state.filters = action.payload;
+    },
+    resetFilters: (state, action) => {
+      state.filters = {
+        location: '',
+        details: {
+          airConditioner: false,
+          kitchen: false,
+          TV: false,
+          shower: false,
+        },
+        form: '',
+        transmission: '',
+      };
     },
   },
   extraReducers: builder => {
@@ -57,6 +84,6 @@ const campersSlice = createSlice({
   },
 });
 
-export const { toggleFavorite, resetPage } = campersSlice.actions;
+export const { toggleFavorite, resetPage, setFilters, resetFilters } = campersSlice.actions;
 
 export const campersReducer = campersSlice.reducer;

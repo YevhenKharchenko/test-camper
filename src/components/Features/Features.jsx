@@ -1,7 +1,6 @@
-import React from 'react';
+import { formatString } from '../../utils/formatString.js';
 import CategoryItem from '../CategoryItem/CategoryItem.jsx';
 import s from './Features.module.css';
-import { formatString } from '../../utils/formatString.js';
 
 const Features = ({ item }) => {
   return (
