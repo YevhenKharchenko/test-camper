@@ -5,13 +5,11 @@ import s from './CatalogPage.module.css';
 
 const CatalogPage = () => {
   return (
-    <main>
-      <div className={s.container}>
-        <DocumentTitle>Rent Camper - Catalog</DocumentTitle>
-        <FiltersBar />
-        <CampersList />
-      </div>
-    </main>
+    <div className={s.container}>
+      <DocumentTitle>Rent Camper - Catalog</DocumentTitle>
+      <FiltersBar />
+      <CampersList />
+    </div>
   );
 };
 
