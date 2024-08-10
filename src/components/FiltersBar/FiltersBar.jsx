@@ -1,11 +1,10 @@
-import React from 'react';
 import clsx from 'clsx';
 import { useForm } from 'react-hook-form';
-import sprite from '../../assets/icons/sprite.svg';
-import Button from '../../shared/components/Button/Button.jsx';
-import s from './FiltersBar.module.css';
 import { useDispatch } from 'react-redux';
 import { setFilters } from '../../redux/campers/slice.js';
+import Button from '../../shared/components/Button/Button.jsx';
+import sprite from '../../assets/icons/sprite.svg';
+import s from './FiltersBar.module.css';
 
 const FiltersBar = () => {
   const dispatch = useDispatch();

@@ -1,10 +1,10 @@
-import { useEffect, useState, useMemo } from 'react';
 import toast from 'react-hot-toast';
-import CampersItem from '../CampersItem/CampersItem.jsx';
+import { useEffect, useState, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCampers, selectFilters } from '../../redux/selectors.js';
 import { fetchCampers } from '../../redux/campers/operations.js';
 import { resetFilters } from '../../redux/campers/slice.js';
+import CampersItem from '../CampersItem/CampersItem.jsx';
 import LoadMoreButton from '../LoadMoreButton/LoadMoreButton.jsx';
 import s from './CampersList.module.css';
 

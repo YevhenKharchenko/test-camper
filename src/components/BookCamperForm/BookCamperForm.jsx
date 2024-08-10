@@ -1,5 +1,4 @@
-import React from 'react';
-import clsx from 'clsx';
+import toast from 'react-hot-toast';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import DatePicker from 'react-datepicker';
@@ -8,7 +7,6 @@ import { validationSchema } from '../../schemas/validationSchema.js';
 import Button from '../../shared/components/Button/Button.jsx';
 import sprite from '../../assets/icons/sprite.svg';
 import s from './BookCamperForm.module.css';
-import toast from 'react-hot-toast';
 
 const BookCamperForm = () => {
   const {

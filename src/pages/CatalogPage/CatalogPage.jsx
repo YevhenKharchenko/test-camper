@@ -1,4 +1,3 @@
-import React from 'react';
 import DocumentTitle from '../../components/DocumentTitle.jsx';
 import FiltersBar from '../../components/FiltersBar/FiltersBar.jsx';
 import CampersList from '../../components/CampersList/CampersList.jsx';

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
 import clsx from 'clsx';
+import { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
-import sprite from '../../assets/icons/sprite.svg';
 import Features from '../Features/Features.jsx';
 import BookCamperForm from '../BookCamperForm/BookCamperForm.jsx';
 import Reviews from '../Reviews/Reviews.jsx';
+import sprite from '../../assets/icons/sprite.svg';
 import s from './Modal.module.css';
 
 const Modal = ({ item, closeModal }) => {

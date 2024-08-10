@@ -1,6 +1,5 @@
-import React from 'react';
-import s from './Reviews.module.css';
 import ReviewItem from '../ReviewItem/ReviewItem.jsx';
+import s from './Reviews.module.css';
 
 const Reviews = ({ item }) => {
   return (

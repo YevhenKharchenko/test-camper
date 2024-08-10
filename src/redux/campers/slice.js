@@ -44,7 +44,6 @@ const campersSlice = createSlice({
       state.page = 2;
     },
     setFilters: (state, action) => {
-      console.log(action.payload);
       state.filters = action.payload;
     },
     resetFilters: (state, action) => {

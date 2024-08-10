@@ -1,12 +1,12 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { useModal } from '../../hooks/useModal.jsx';
+import { FaStar } from 'react-icons/fa';
 import Button from '../../shared/components/Button/Button.jsx';
 import LikeButton from '../LikeButton/LikeButton.jsx';
-import sprite from '../../assets/icons/sprite.svg';
-import s from './CampersItem.module.css';
 import Modal from '../Modal/Modal.jsx';
 import CategoryItem from '../CategoryItem/CategoryItem.jsx';
-import { FaStar } from 'react-icons/fa';
+import sprite from '../../assets/icons/sprite.svg';
+import s from './CampersItem.module.css';
 
 const CampersItem = ({ item }) => {
   const setModal = useModal();

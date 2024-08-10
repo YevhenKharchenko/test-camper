@@ -1,4 +1,3 @@
-import React from 'react';
 import clsx from 'clsx';
 import sprite from '../../assets/icons/sprite.svg';
 import s from './CategoryItem.module.css';
