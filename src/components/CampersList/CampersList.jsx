@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import toast from 'react-hot-toast';
 import CampersItem from '../CampersItem/CampersItem.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCampers, selectFilters } from '../../redux/selectors.js';
 import { fetchCampers } from '../../redux/campers/operations.js';
-import { resetFilters, resetPage } from '../../redux/campers/slice.js';
+import { resetFilters } from '../../redux/campers/slice.js';
 import LoadMoreButton from '../LoadMoreButton/LoadMoreButton.jsx';
 import s from './CampersList.module.css';
 
@@ -15,37 +15,39 @@ const CampersList = () => {
   const [count, setCount] = useState(4);
 
   useEffect(() => {
+    setCount(4);
     dispatch(resetFilters());
     dispatch(fetchCampers());
   }, [dispatch]);
 
+  const filteredCampers = useMemo(() => {
+    const { location = '', details = {}, form = '', transmission = '' } = filters;
+
+    return campers.filter(el => {
+      const camperLocation = el.location?.toLowerCase() || '';
+      const camperDetails = el.details || {};
+      const camperForm = el.form || '';
+      const camperTransmission = el.transmission || '';
+
+      const matchesLocation = camperLocation.includes(location.toLowerCase());
+
+      const matchesForm = !form || camperForm === form;
+
+      const matchesTransmission = !transmission || camperTransmission === transmission;
+
+      const matchesEquipment = Object.keys(details).every(
+        key => !details[key] || camperDetails[key] === 1
+      );
+
+      return matchesLocation && matchesEquipment && matchesForm && matchesTransmission;
+    });
+  }, [campers, filters]);
+
   useEffect(() => {
-    if (count >= campers.length) {
+    if (count >= filteredCampers.length) {
       toast.error('There are no more campers to load.');
     }
-  });
-
-  const filteredCampers = campers.filter(el => {
-    const { location = '', details = {}, form = '', transmission = '' } = filters;
-    console.log(filters);
-
-    const camperLocation = el.location?.toLowerCase() || '';
-    const camperDetails = el.details || {};
-    const camperForm = el.form || '';
-    const camperTransmission = el.transmission || '';
-
-    const matchesLocation = camperLocation.includes(location.toLowerCase());
-
-    const matchesForm = !form || camperForm === form;
-
-    const matchesTransmission = !transmission || camperTransmission === transmission;
-
-    const matchesEquipment = Object.keys(details).every(
-      key => !details[key] || camperDetails[key] === 1
-    );
-
-    return matchesLocation && matchesEquipment && matchesForm && matchesTransmission;
-  });
+  }, [count, filteredCampers.length]);
 
   const handleMoreBtnClick = () => {
     setCount(prevCount => prevCount + 4);

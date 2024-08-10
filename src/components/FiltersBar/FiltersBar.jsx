@@ -12,9 +12,6 @@ const FiltersBar = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = data => {
-    console.log(data);
-
-    const { location, details, form, transmission } = data;
     dispatch(setFilters(data));
   };
 
@@ -27,7 +24,7 @@ const FiltersBar = () => {
             className={s.locationInput}
             type="text"
             {...register('location')}
-            placeholder="Kyiv, Ukraine"
+            placeholder="City"
           />
           <svg className={s.locationIcon}>
             <use xlinkHref={`${sprite}#icon-map-pin`}></use>
