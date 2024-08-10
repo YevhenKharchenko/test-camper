@@ -13,7 +13,14 @@
 
 .nav {
   display: flex;
-  gap: 24px;
+  gap: 40px;
+}
+
+.link {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
 }
 
 .link:hover,
