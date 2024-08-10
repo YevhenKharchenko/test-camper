@@ -14,16 +14,18 @@ import NotFoundPage from './pages/NotFoundPage/NotFoundPage.jsx';
 
 function App() {
   return (
-    <SharedLayout>
+    <>
       <Navigation />
-      <Toaster position="top-center" />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/catalog" element={<CatalogPage />} />
-        <Route path="/favorites" element={<FavoritePage />} />
-        <Route path="*" element={<HomePage />} />
-      </Routes>
-    </SharedLayout>
+      <SharedLayout>
+        <Toaster position="top-center" />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/catalog" element={<CatalogPage />} />
+          <Route path="/favorites" element={<FavoritePage />} />
+          <Route path="*" element={<HomePage />} />
+        </Routes>
+      </SharedLayout>
+    </>
   );
 }
 
