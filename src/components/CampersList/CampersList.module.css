@@ -1,7 +1,6 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 888px;
 }
@@ -17,6 +16,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 200px;
 }
 
 .emptyText {

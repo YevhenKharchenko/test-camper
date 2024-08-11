@@ -13,12 +13,14 @@ const CampersList = () => {
   const campers = useSelector(selectCampers);
   const filters = useSelector(selectFilters);
   const [count, setCount] = useState(4);
+  const [hasMounted, setHasMounted] = useState(false);
   const listRef = useRef(null);
 
   useEffect(() => {
     setCount(4);
     dispatch(resetFilters());
     dispatch(fetchCampers());
+    setHasMounted(true);
   }, [dispatch]);
 
   const filteredCampers = useMemo(() => {
@@ -45,14 +47,14 @@ const CampersList = () => {
   }, [campers, filters]);
 
   useEffect(() => {
-    if (count >= filteredCampers.length) {
-      if (filteredCampers.length === 0) {
-        toast.error('No campers available.');
-      } else {
-        toast.success('All campers are loaded.');
-      }
+    if (!hasMounted) return;
+
+    if (filteredCampers.length === 0) {
+      toast.error('No campers available.');
+    } else if (count >= filteredCampers.length) {
+      toast.success('All campers are loaded.');
     }
-  }, [count, filteredCampers.length]);
+  }, [count, filteredCampers.length, hasMounted]);
 
   useEffect(() => {
     if (count > 4) {
