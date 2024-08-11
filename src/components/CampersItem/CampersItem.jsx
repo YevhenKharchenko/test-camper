@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { useModal } from '../../hooks/useModal.jsx';
 import { FaStar } from 'react-icons/fa';
+import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter.js';
 import Button from '../../shared/components/Button/Button.jsx';
 import LikeButton from '../LikeButton/LikeButton.jsx';
 import Modal from '../Modal/Modal.jsx';
@@ -54,14 +55,21 @@ const CampersItem = ({ item }) => {
             <CategoryItem icon="icon-users" title={`${item.adults} adults`} fill={true} />
           </li>
           <li>
-            <CategoryItem icon="icon-automatic" title={`${item.transmission}`} />
+            <CategoryItem
+              icon="icon-automatic"
+              title={`${capitalizeFirstLetter(item.transmission)}`}
+            />
           </li>
           <li>
-            <CategoryItem icon="icon-petrol" title={item.engine} fill={true} />
+            <CategoryItem
+              icon="icon-petrol"
+              title={capitalizeFirstLetter(item.engine)}
+              fill={true}
+            />
           </li>
           {item.details.kitchen > 0 && (
             <li>
-              <CategoryItem icon="icon-kitchen" title="kitchen" />
+              <CategoryItem icon="icon-kitchen" title="Kitchen" />
             </li>
           )}
           <li>

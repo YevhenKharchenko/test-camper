@@ -8,7 +8,6 @@ import Navigation from './components/Navigation/Navigation.jsx';
 const HomePage = lazy(() => import('./pages/HomePage/HomePage.jsx'));
 const CatalogPage = lazy(() => import('./pages/CatalogPage/CatalogPage.jsx'));
 const FavoritePage = lazy(() => import('./pages/FavoritePage/FavoritePage.jsx'));
-// const Navigation = lazy(() => import('./components/Navigation/Navigation.jsx'));
 
 function App() {
   return (

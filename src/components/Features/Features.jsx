@@ -1,4 +1,5 @@
 import { formatString } from '../../utils/formatString.js';
+import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter.js';
 import CategoryItem from '../CategoryItem/CategoryItem.jsx';
 import s from './Features.module.css';
 
@@ -10,14 +11,14 @@ const Features = ({ item }) => {
           <CategoryItem icon="icon-users" title={`${item.adults} adults`} fill={true} />
         </li>
         <li>
-          <CategoryItem icon="icon-automatic" title={`${item.transmission}`} />
+          <CategoryItem icon="icon-automatic" title={capitalizeFirstLetter(item.transmission)} />
         </li>
         <li>
-          <CategoryItem icon="icon-petrol" title={item.engine} fill={true} />
+          <CategoryItem icon="icon-petrol" title={capitalizeFirstLetter(item.engine)} fill={true} />
         </li>
         {item.details.kitchen > 0 && (
           <li>
-            <CategoryItem icon="icon-kitchen" title="kitchen" />
+            <CategoryItem icon="icon-kitchen" title="Kitchen" />
           </li>
         )}
         <li>
@@ -40,12 +41,12 @@ const Features = ({ item }) => {
         )}
         {item.details.radio > 0 && (
           <li>
-            <CategoryItem icon="icon-radio" title="radio" />
+            <CategoryItem icon="icon-radio" title="Radio" />
           </li>
         )}
         {item.details.freezer > 0 && (
           <li>
-            <CategoryItem icon="icon-freezer" title="freezer" />
+            <CategoryItem icon="icon-freezer" title="Freezer" />
           </li>
         )}
         {item.details.hob > 0 && (
@@ -55,17 +56,17 @@ const Features = ({ item }) => {
         )}
         {item.details.microwave > 0 && (
           <li>
-            <CategoryItem icon="icon-microwave" title="microwave" />
+            <CategoryItem icon="icon-microwave" title="Microwave" />
           </li>
         )}
         {item.details.shower > 0 && (
           <li>
-            <CategoryItem icon="icon-shower" title="shower" />
+            <CategoryItem icon="icon-shower" title="Shower" />
           </li>
         )}
         {item.details.toilet > 0 && (
           <li>
-            <CategoryItem icon="icon-toilet" title="toilet" fill={true} />
+            <CategoryItem icon="icon-toilet" title="Toilet" fill={true} />
           </li>
         )}
         {item.details.water !== '' && (
