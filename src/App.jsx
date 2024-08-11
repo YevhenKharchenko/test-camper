@@ -1,5 +1,5 @@
 import { Toaster } from 'react-hot-toast';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { lazy } from 'react';
 
 import SharedLayout from './components/SharedLayout/SharedLayout.jsx';
@@ -10,9 +10,13 @@ const CatalogPage = lazy(() => import('./pages/CatalogPage/CatalogPage.jsx'));
 const FavoritePage = lazy(() => import('./pages/FavoritePage/FavoritePage.jsx'));
 
 function App() {
+  const location = useLocation();
+
+  const isHomePage = location.pathname === '/';
+
   return (
     <>
-      <Navigation />
+      <Navigation isHomePage={isHomePage} />
       <SharedLayout>
         <Toaster position="top-right" />
         <Routes>

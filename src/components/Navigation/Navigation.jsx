@@ -6,9 +6,9 @@ const buildLinkClass = ({ isActive }) => {
   return clsx(s.link, isActive && s.active);
 };
 
-const Navigation = () => {
+const Navigation = ({ isHomePage }) => {
   return (
-    <header className={s.header}>
+    <header className={clsx(s.header, isHomePage && s.isHomePage)}>
       <nav className={s.nav}>
         <NavLink to="/" className={buildLinkClass}>
           Home
