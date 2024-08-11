@@ -44,7 +44,7 @@ const FiltersBar = () => {
             <label className={s.checkboxLabel} htmlFor="ac">
               <div className={s.wrapper}>
                 <svg className={clsx(s.checkboxIcon)}>
-                  <use xlinkHref={`${sprite}#icon-conditioner`}></use>
+                  <use xlinkHref={`${sprite}#icon-ac`}></use>
                 </svg>
                 <span className={s.checkboxSpan}>AC</span>
               </div>
@@ -127,7 +127,7 @@ const FiltersBar = () => {
             />
             <label className={s.checkboxLabel} htmlFor="van">
               <div className={s.wrapper}>
-                <svg className={clsx(s.checkboxIcon)}>
+                <svg className={clsx(s.checkboxIcon, s.iconFill)}>
                   <use xlinkHref={`${sprite}#icon-camper-van`}></use>
                 </svg>
                 <span className={s.checkboxSpan}>Van</span>
@@ -144,7 +144,7 @@ const FiltersBar = () => {
             />
             <label className={s.checkboxLabel} htmlFor="integrated">
               <div className={s.wrapper}>
-                <svg className={clsx(s.checkboxIcon)}>
+                <svg className={clsx(s.checkboxIcon, s.iconFill)}>
                   <use xlinkHref={`${sprite}#icon-camper-integrated`}></use>
                 </svg>
                 <span className={clsx(s.checkboxSpan, s.integrated)}>Fully Integrated</span>
@@ -161,7 +161,7 @@ const FiltersBar = () => {
             />
             <label className={s.checkboxLabel} htmlFor="alcove">
               <div className={s.wrapper}>
-                <svg className={clsx(s.checkboxIcon)}>
+                <svg className={clsx(s.checkboxIcon, s.iconFill)}>
                   <use xlinkHref={`${sprite}#icon-camper-alcove`}></use>
                 </svg>
                 <span className={s.checkboxSpan}>Alcove</span>

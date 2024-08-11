@@ -25,7 +25,7 @@ const Features = ({ item }) => {
         </li>
         {item.details.airConditioner > 0 && (
           <li>
-            <CategoryItem icon="icon-conditioner" title="AC" />
+            <CategoryItem icon="icon-ac" title="AC" />
           </li>
         )}
         {item.details.CD > 0 && (
