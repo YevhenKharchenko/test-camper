@@ -46,7 +46,11 @@ const CampersList = () => {
 
   useEffect(() => {
     if (count >= filteredCampers.length) {
-      toast.error('There are no more campers to load.');
+      if (filteredCampers.length === 0) {
+        toast.error('No campers available.');
+      } else {
+        toast.success('All campers are loaded.');
+      }
     }
   }, [count, filteredCampers.length]);
 
@@ -64,16 +68,27 @@ const CampersList = () => {
 
   return (
     <div className={s.container}>
-      <ul className={s.list} ref={listRef}>
-        {filteredCampers.slice(0, count).map(item => {
-          return (
-            <li key={item._id} className={s.item}>
-              <CampersItem item={item} />
-            </li>
-          );
-        })}
-      </ul>
-      {count < filteredCampers.length && <LoadMoreButton handleMoreBtnClick={handleMoreBtnClick} />}
+      {filteredCampers.length > 0 ? (
+        <>
+          <ul className={s.list} ref={listRef}>
+            {filteredCampers.slice(0, count).map(item => (
+              <li key={item._id} className={s.item}>
+                <CampersItem item={item} />
+              </li>
+            ))}
+          </ul>
+          {count < filteredCampers.length && (
+            <LoadMoreButton handleMoreBtnClick={handleMoreBtnClick} />
+          )}
+        </>
+      ) : (
+        <div className={s.empty}>
+          <p className={s.emptyText}>
+            No campers are available at the moment. Try adjusting your filters to see different
+            results.
+          </p>
+        </div>
+      )}
     </div>
   );
 };

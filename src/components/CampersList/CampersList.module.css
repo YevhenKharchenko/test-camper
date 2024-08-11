@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 888px;
 }
 
 .list {
@@ -12,5 +13,15 @@
   margin-bottom: 50px;
 }
 
-.item {
+.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.emptyText {
+  font-size: 24px;
+  color: #475467;
+  text-align: center;
+  width: 700px;
 }
