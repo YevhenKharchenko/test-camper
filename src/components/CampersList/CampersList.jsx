@@ -1,5 +1,5 @@
 import toast from 'react-hot-toast';
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCampers, selectFilters } from '../../redux/selectors.js';
 import { fetchCampers } from '../../redux/campers/operations.js';
@@ -13,6 +13,7 @@ const CampersList = () => {
   const campers = useSelector(selectCampers);
   const filters = useSelector(selectFilters);
   const [count, setCount] = useState(4);
+  const listRef = useRef(null);
 
   useEffect(() => {
     setCount(4);
@@ -49,13 +50,21 @@ const CampersList = () => {
     }
   }, [count, filteredCampers.length]);
 
+  useEffect(() => {
+    if (count > 4) {
+      setTimeout(() => {
+        listRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      }, 100);
+    }
+  }, [count]);
+
   const handleMoreBtnClick = () => {
     setCount(prevCount => prevCount + 4);
   };
 
   return (
     <div className={s.container}>
-      <ul className={s.list}>
+      <ul className={s.list} ref={listRef}>
         {filteredCampers.slice(0, count).map(item => {
           return (
             <li key={item._id} className={s.item}>
