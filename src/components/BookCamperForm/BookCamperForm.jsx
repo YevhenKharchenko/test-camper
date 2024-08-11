@@ -23,8 +23,8 @@ const BookCamperForm = () => {
     },
   });
 
-  const onSubmit = data => {
-    toast.success('Successfully sent');
+  const onSubmit = () => {
+    toast.success('Your campervan has been successfully booked!');
     window.location.reload();
   };
 
@@ -66,6 +66,7 @@ const BookCamperForm = () => {
                 selected={field.value}
                 onChange={field.onChange}
                 dateFormat="dd/MM/yyyy"
+                minDate={new Date()}
               />
             )}
           />

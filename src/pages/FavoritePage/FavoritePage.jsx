@@ -12,7 +12,7 @@ const FavoritePage = () => {
   const navigate = useNavigate();
 
   return favorite.length > 0 ? (
-    <div className={s.container}>
+    <section className={s.container}>
       <DocumentTitle>Rent Camper - Favorite</DocumentTitle>
       <ul className={s.list}>
         {favorite.map(item => {
@@ -23,9 +23,9 @@ const FavoritePage = () => {
           );
         })}
       </ul>
-    </div>
+    </section>
   ) : (
-    <div className={s.empty}>
+    <section className={s.empty}>
       <img className={s.img} src={img} alt="Camper picture" width={400} height={400} />
       <h2 className={s.title}>Your Favorites List is Currently Empty</h2>
       <p className={s.text}>
@@ -39,7 +39,7 @@ const FavoritePage = () => {
           navigate('/catalog');
         }}
       />
-    </div>
+    </section>
   );
 };
 

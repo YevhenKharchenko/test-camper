@@ -15,7 +15,7 @@ const FiltersBar = () => {
   };
 
   return (
-    <div className={s.container}>
+    <section className={s.container}>
       <form className={s.filtersForm} onSubmit={handleSubmit(onSubmit)}>
         <label className={s.locationLabel} htmlFor="">
           Location
@@ -172,7 +172,7 @@ const FiltersBar = () => {
 
         <Button type="submit" title="Search" />
       </form>
-    </div>
+    </section>
   );
 };
 

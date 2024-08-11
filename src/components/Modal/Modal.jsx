@@ -12,7 +12,7 @@ const Modal = ({ item, closeModal }) => {
   const [option, setOption] = useState('features');
 
   return (
-    <div className={s.container}>
+    <section className={s.container}>
       <button className={s.modalCloseBtn} type="button" onClick={closeModal}>
         <svg className={s.modalCloseIcon}>
           <use xlinkHref={`${sprite}#icon-close`}></use>
@@ -34,29 +34,21 @@ const Modal = ({ item, closeModal }) => {
       <p className={s.price}>€{item.price}.00</p>
 
       <CustomScrollWrapper scrollClassName={s.scrollbarWrapper}>
-        <div className={s.imgContainer}>
-          <img
-            src={item.gallery[0]}
-            alt="Camper image"
-            width={290}
-            height={310}
-            className={s.camperImage}
-          />
-          <img
-            src={item.gallery[1]}
-            alt="Camper image"
-            width={290}
-            height={310}
-            className={s.camperImage}
-          />
-          <img
-            src={item.gallery[2]}
-            alt="Camper image"
-            width={290}
-            height={310}
-            className={s.camperImage}
-          />
-        </div>
+        <ul className={s.imgContainer}>
+          {item.gallery.map((el, idx) => {
+            return (
+              <li key={idx}>
+                <img
+                  src={el}
+                  alt="Camper image"
+                  width={290}
+                  height={310}
+                  className={s.camperImage}
+                />
+              </li>
+            );
+          })}
+        </ul>
         <p className={s.description}>{item.description}</p>
         <div className={s.titlesWrapper}>
           <button
@@ -81,7 +73,7 @@ const Modal = ({ item, closeModal }) => {
           <BookCamperForm />
         </div>
       </CustomScrollWrapper>
-    </div>
+    </section>
   );
 };
 

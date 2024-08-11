@@ -71,7 +71,7 @@ const CampersList = () => {
   };
 
   return (
-    <div className={s.container}>
+    <section className={s.container}>
       {loading ? (
         <Loader />
       ) : filteredCampers.length > 0 ? (
@@ -95,7 +95,7 @@ const CampersList = () => {
           </p>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

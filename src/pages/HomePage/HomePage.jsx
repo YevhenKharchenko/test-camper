@@ -45,9 +45,9 @@ const HomePage = () => {
   ];
 
   return (
-    <div>
+    <>
       <DocumentTitle>Rent Camper</DocumentTitle>
-      <div className={s.container}>
+      <section className={s.container}>
         <video ref={videoRef} className={s.video} autoPlay muted loop playsInline>
           <source type="video/mp4" src={video} />
         </video>
@@ -75,8 +75,8 @@ const HomePage = () => {
             />
           </motion.div>
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 };
 
