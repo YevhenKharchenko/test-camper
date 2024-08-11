@@ -46,7 +46,7 @@ const campersSlice = createSlice({
     setFilters: (state, action) => {
       state.filters = action.payload;
     },
-    resetFilters: (state, action) => {
+    resetFilters: state => {
       state.filters = {
         location: '',
         details: {

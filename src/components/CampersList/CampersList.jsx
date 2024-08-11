@@ -1,11 +1,12 @@
 import toast from 'react-hot-toast';
 import { useEffect, useState, useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCampers, selectFilters } from '../../redux/selectors.js';
+import { selectCampers, selectFilters, selectLoading } from '../../redux/selectors.js';
 import { fetchCampers } from '../../redux/campers/operations.js';
 import { resetFilters } from '../../redux/campers/slice.js';
 import CampersItem from '../CampersItem/CampersItem.jsx';
 import LoadMoreButton from '../LoadMoreButton/LoadMoreButton.jsx';
+import Loader from '../../shared/components/Loader/Loader.jsx';
 import s from './CampersList.module.css';
 
 const CampersList = () => {
@@ -15,6 +16,7 @@ const CampersList = () => {
   const [count, setCount] = useState(4);
   const [hasMounted, setHasMounted] = useState(false);
   const listRef = useRef(null);
+  const loading = useSelector(selectLoading);
 
   useEffect(() => {
     setCount(4);
@@ -70,7 +72,9 @@ const CampersList = () => {
 
   return (
     <div className={s.container}>
-      {filteredCampers.length > 0 ? (
+      {loading ? (
+        <Loader />
+      ) : filteredCampers.length > 0 ? (
         <>
           <ul className={s.list} ref={listRef}>
             {filteredCampers.slice(0, count).map(item => (
