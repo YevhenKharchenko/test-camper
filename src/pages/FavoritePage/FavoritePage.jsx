@@ -4,7 +4,7 @@ import { selectFavorite } from '../../redux/selectors.js';
 import DocumentTitle from '../../components/DocumentTitle.jsx';
 import CampersItem from '../../components/CampersItem/CampersItem.jsx';
 import Button from '../../shared/components/Button/Button.jsx';
-import img from '../../assets/images/autumn-season.png';
+import img from '../../assets/images/autumn-season-min.png';
 import s from './FavoritePage.module.css';
 
 const FavoritePage = () => {
