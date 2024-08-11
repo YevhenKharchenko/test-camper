@@ -6,6 +6,7 @@ import BookCamperForm from '../BookCamperForm/BookCamperForm.jsx';
 import Reviews from '../Reviews/Reviews.jsx';
 import sprite from '../../assets/icons/sprite.svg';
 import s from './Modal.module.css';
+import CustomScrollWrapper from '../../shared/components/CustomScrollWrapper/CustomScrollWrapper.jsx';
 
 const Modal = ({ item, closeModal }) => {
   const [option, setOption] = useState('features');
@@ -31,34 +32,43 @@ const Modal = ({ item, closeModal }) => {
         </div>
       </div>
       <p className={s.price}>€{item.price}.00</p>
-      <div className={s.imgWrapper}>
-        <img src={item.gallery[0]} alt="" width={290} height={310} className={s.camperImage} />
-        <img src={item.gallery[1]} alt="" width={290} height={310} className={s.camperImage} />
-        <img src={item.gallery[2]} alt="" width={290} height={310} className={s.camperImage} />
-      </div>
-      <p className={s.description}>{item.description}</p>
-      <div className={s.titlesWrapper}>
-        <button
-          className={clsx(s.subtitle, option === 'features' && s.active)}
-          onClick={() => {
-            setOption('features');
-          }}
-        >
-          Features
-        </button>
-        <button
-          className={clsx(s.subtitle, option === 'reviews' && s.active)}
-          onClick={() => {
-            setOption('reviews');
-          }}
-        >
-          Reviews
-        </button>
-      </div>
-      <div className={s.infoWrapper}>
-        {option === 'features' ? <Features item={item} /> : <Reviews item={item} />}
-        <BookCamperForm />
-      </div>
+
+      <CustomScrollWrapper wrapClassName={s.scrollbarWrapper}>
+        <div className={s.imgContainer}>
+          <div className={s.imgWrapper}>
+            <img src={item.gallery[0]} alt="" width={290} height={310} className={s.camperImage} />
+          </div>
+          <div className={s.imgWrapper}>
+            <img src={item.gallery[1]} alt="" width={290} height={310} className={s.camperImage} />
+          </div>
+          <div className={s.imgWrapper}>
+            <img src={item.gallery[2]} alt="" width={290} height={310} className={s.camperImage} />
+          </div>
+        </div>
+        <p className={s.description}>{item.description}</p>
+        <div className={s.titlesWrapper}>
+          <button
+            className={clsx(s.subtitle, option === 'features' && s.active)}
+            onClick={() => {
+              setOption('features');
+            }}
+          >
+            Features
+          </button>
+          <button
+            className={clsx(s.subtitle, option === 'reviews' && s.active)}
+            onClick={() => {
+              setOption('reviews');
+            }}
+          >
+            Reviews
+          </button>
+        </div>
+        <div className={s.infoWrapper}>
+          {option === 'features' ? <Features item={item} /> : <Reviews item={item} />}
+          <BookCamperForm />
+        </div>
+      </CustomScrollWrapper>
     </div>
   );
 };

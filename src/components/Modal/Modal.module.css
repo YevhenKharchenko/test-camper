@@ -1,9 +1,9 @@
 .container {
   border-radius: 20px;
   padding: 40px;
+  padding-right: 16px;
   width: 982px;
-  height: 720px;
-  overflow-y: auto;
+  /* height: 720px; */
   background-color: #fff;
   position: relative;
 }
@@ -89,16 +89,26 @@
   margin-bottom: 24px;
 }
 
-.imgWrapper {
+.imgContainer {
   display: flex;
+  /* justify-content: center; */
   gap: 16px;
   margin-bottom: 24px;
+}
+
+.imgWrapper {
+  border-radius: 10px;
+  width: 290px;
+  height: 310px;
+  object-fit: cover;
+  overflow: hidden;
 }
 
 .camperImage {
   border-radius: 10px;
   width: 290px;
   height: 310px;
+  overflow: hidden;
   object-fit: cover;
 }
 
@@ -152,4 +162,9 @@
 .infoWrapper {
   display: flex;
   gap: 24px;
+}
+
+.scrollbarWrapper {
+  height: calc(90vh - 180px);
+  padding-right: 16px;
 }
