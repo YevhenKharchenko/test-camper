@@ -13,21 +13,11 @@
   height: 100vh;
 }
 
-.title {
-  position: relative;
-  z-index: 10;
-  color: red;
-}
-
-.text {
-  position: relative;
-  z-index: 10;
-  color: red;
-}
-
 .content {
-  position: relative;
-  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,6 +45,10 @@
   max-width: 600px;
   margin: 0 auto;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.btn {
+  width: 216px;
 }
 
 @media (max-width: 768px) {

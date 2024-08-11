@@ -1,7 +1,9 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import DocumentTitle from '../../components/DocumentTitle.jsx';
 import { default as video } from '../../assets/video/camper.mp4';
+import Button from '../../shared/components/Button/Button.jsx';
 import s from './HomePage.module.css';
 
 const AnimatedItem = ({ title, description, delay }) => (
@@ -17,6 +19,8 @@ const AnimatedItem = ({ title, description, delay }) => (
 );
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -27,16 +31,16 @@ const HomePage = () => {
 
   const items = [
     {
+      title: 'Start Your Unforgettable Journey!',
+      description: 'Welcome to Rent Camper, where every road leads to adventure.',
+    },
+    {
       title: 'Your Journey, Your Way',
       description: 'Customize your adventure with our range of camper rentals.',
     },
     {
       title: 'Explore Nature',
       description: 'Discover breathtaking landscapes and hidden gems.',
-    },
-    {
-      title: 'Create Memories',
-      description: 'Build lasting experiences with friends and family.',
     },
   ];
 
@@ -56,14 +60,21 @@ const HomePage = () => {
               delay={index * 0.2}
             />
           ))}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: items.length * 0.2 }}
+            className={s.animatedItem}
+          >
+            <Button
+              className={s.btn}
+              title="Explore Now"
+              onClick={() => {
+                navigate('/catalog');
+              }}
+            />
+          </motion.div>
         </div>
-        {/* <h1 className={s.title}>Your Journey, Your Way</h1>
-        <p className={s.text}>
-          Welcome to Rent Camper, where every road leads to adventure. We offer a range of camper
-          rentals to suit every traveler, from solo adventurers to families. Customize your journey,
-          explore at your own pace, and discover the beauty of the world around you. Your adventure
-          begins here!
-        </p> */}
       </div>
     </div>
   );
