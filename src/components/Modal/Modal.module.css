@@ -151,6 +151,7 @@
 .infoWrapper {
   display: flex;
   gap: 24px;
+  padding-bottom: 2px;
 }
 
 .scrollbarWrapper {
