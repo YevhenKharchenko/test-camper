@@ -33,17 +33,29 @@ const Modal = ({ item, closeModal }) => {
       </div>
       <p className={s.price}>€{item.price}.00</p>
 
-      <CustomScrollWrapper wrapClassName={s.scrollbarWrapper}>
+      <CustomScrollWrapper scrollClassName={s.scrollbarWrapper}>
         <div className={s.imgContainer}>
-          <div className={s.imgWrapper}>
-            <img src={item.gallery[0]} alt="" width={290} height={310} className={s.camperImage} />
-          </div>
-          <div className={s.imgWrapper}>
-            <img src={item.gallery[1]} alt="" width={290} height={310} className={s.camperImage} />
-          </div>
-          <div className={s.imgWrapper}>
-            <img src={item.gallery[2]} alt="" width={290} height={310} className={s.camperImage} />
-          </div>
+          <img
+            src={item.gallery[0]}
+            alt="Camper image"
+            width={290}
+            height={310}
+            className={s.camperImage}
+          />
+          <img
+            src={item.gallery[1]}
+            alt="Camper image"
+            width={290}
+            height={310}
+            className={s.camperImage}
+          />
+          <img
+            src={item.gallery[2]}
+            alt="Camper image"
+            width={290}
+            height={310}
+            className={s.camperImage}
+          />
         </div>
         <p className={s.description}>{item.description}</p>
         <div className={s.titlesWrapper}>

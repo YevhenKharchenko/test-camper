@@ -26,7 +26,7 @@ const FavoritePage = () => {
     </div>
   ) : (
     <div className={s.empty}>
-      <img className={s.img} src={img} alt="" width={400} height={400} />
+      <img className={s.img} src={img} alt="Camper picture" width={400} height={400} />
       <h2 className={s.title}>Your Favorites List is Currently Empty</h2>
       <p className={s.text}>
         Browse through our diverse selection of campers to find the perfect one for your next

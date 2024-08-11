@@ -13,9 +13,7 @@ const HourglassLoader = () => {
         wrapperClass=""
         colors={['#306cce', '#72a1ed']}
       />
-      <p className={css.loaderText}>
-        Refreshing your session and loading data. Please wait a moment. Thank you!
-      </p>
+      <p className={css.loaderText}>Loading data. Please wait a moment...</p>
     </div>
   );
 };

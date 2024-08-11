@@ -21,7 +21,13 @@ const CampersItem = ({ item }) => {
 
   return (
     <div className={s.listItem}>
-      <img src={item.gallery[0]} alt="" width={290} height={310} className={s.camperImage} />
+      <img
+        src={item.gallery[0]}
+        alt="Camper image"
+        width={290}
+        height={310}
+        className={s.camperImage}
+      />
       <div className={s.descriptionWrapper}>
         <div className={s.nameWrapper}>
           <h2 className={s.title}>{item.name}</h2>

@@ -3,11 +3,11 @@ import 'overlayscrollbars/styles/overlayscrollbars.css';
 import clsx from 'clsx';
 import './CustomScrollWrapper.css';
 
-const CustomScrollWrapper = ({ children, wrapClassName }) => {
+const CustomScrollWrapper = ({ children, scrollClassName }) => {
   return (
     <OverlayScrollbarsComponent
       element="div"
-      className={clsx('myScroll', wrapClassName && wrapClassName)}
+      className={clsx('myScroll', scrollClassName && scrollClassName)}
       options={{
         scrollbars: { autoHide: 'never', theme: 'no-theme' },
       }}

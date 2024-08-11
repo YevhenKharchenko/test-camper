@@ -2,8 +2,6 @@
   border-radius: 20px;
   padding: 40px;
   padding-right: 16px;
-  width: 982px;
-  /* height: 720px; */
   background-color: #fff;
   position: relative;
 }
@@ -91,17 +89,8 @@
 
 .imgContainer {
   display: flex;
-  /* justify-content: center; */
   gap: 16px;
   margin-bottom: 24px;
-}
-
-.imgWrapper {
-  border-radius: 10px;
-  width: 290px;
-  height: 310px;
-  object-fit: cover;
-  overflow: hidden;
 }
 
 .camperImage {
@@ -165,6 +154,7 @@
 }
 
 .scrollbarWrapper {
+  width: 902px;
   height: calc(90vh - 180px);
   padding-right: 16px;
 }
