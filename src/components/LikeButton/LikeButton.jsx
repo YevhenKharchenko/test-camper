@@ -15,7 +15,7 @@ const LikeButton = ({ item }) => {
 
   return (
     <button className={s.likeButton} onClick={handleLikeClick}>
-      <svg className={clsx(s.likeIcon, isFavorite ? s.liked : '')}>
+      <svg className={clsx(s.likeIcon, { [s.liked]: isFavorite })}>
         <use xlinkHref={`${sprite}#icon-like-default`}></use>
       </svg>
     </button>
