@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchCampers, fetchMoreCampers } from './operations';
+import { fetchCampers } from './operations';
 
 const handlePending = state => {
   state.loading = true;
@@ -68,19 +68,7 @@ const campersSlice = createSlice({
         state.error = null;
         state.items = action.payload;
       })
-      .addCase(fetchCampers.rejected, handleRejected)
-      .addCase(fetchMoreCampers.pending, handlePending)
-      .addCase(fetchMoreCampers.fulfilled, (state, action) => {
-        state.loading = false;
-        state.error = null;
-        state.items = [...state.items, ...action.payload];
-        if (action.payload.length < 4) {
-          state.page = 'lastPage';
-        } else {
-          state.page = state.page + 1;
-        }
-      })
-      .addCase(fetchMoreCampers.rejected, handleRejected);
+      .addCase(fetchCampers.rejected, handleRejected);
   },
 });
 

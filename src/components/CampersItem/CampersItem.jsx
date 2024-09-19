@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { useModal } from '../../hooks/useModal.jsx';
 import { FaStar } from 'react-icons/fa';
 import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter.js';
+import { getFormattedPrice } from '../../utils/getFormattedPrice.js';
 import Button from '../../shared/components/Button/Button.jsx';
 import LikeButton from '../LikeButton/LikeButton.jsx';
 import Modal from '../Modal/Modal.jsx';
@@ -33,7 +34,7 @@ const CampersItem = ({ item }) => {
         <div className={s.nameWrapper}>
           <h2 className={s.title}>{item.name}</h2>
           <div className={s.priceWrapper}>
-            <p className={s.price}>€{item.price}.00</p>
+            <p className={s.price}>€{getFormattedPrice(item.price)}</p>
             <LikeButton item={item} />
           </div>
         </div>

@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
+import { getFormattedPrice } from '../../utils/getFormattedPrice.js';
 import Features from '../Features/Features.jsx';
 import BookCamperForm from '../BookCamperForm/BookCamperForm.jsx';
 import Reviews from '../Reviews/Reviews.jsx';
@@ -31,7 +32,7 @@ const Modal = ({ item, closeModal }) => {
           <p className={s.location}>{item.location}</p>
         </div>
       </div>
-      <p className={s.price}>€{item.price}.00</p>
+      <p className={s.price}>€{getFormattedPrice(item.price)}</p>
 
       <CustomScrollWrapper scrollClassName={s.scrollbarWrapper}>
         <ul className={s.imgContainer}>
